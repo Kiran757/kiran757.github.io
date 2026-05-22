@@ -53,7 +53,6 @@
     z-index: 0;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -89,7 +88,6 @@
   }
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
   #hero {
     position: relative;
     z-index: 1;
@@ -182,10 +180,7 @@
   .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .photo-placeholder-icon { font-size: 3rem; line-height: 1; }
 
-  /* SHARED SECTION */
-  .section-wrap {
-    position: relative; z-index: 1;
-  }
+  .section-wrap { position: relative; z-index: 1; }
   .section-wrap.alt { background: var(--navy-2); }
 
   .section-inner {
@@ -210,11 +205,7 @@
     background: var(--accent); border-radius: 2px; margin-top: 1rem;
   }
 
-  /* ABOUT */
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .about-text p { color: var(--text-secondary); font-weight: 300; margin-bottom: 1rem; }
 
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
@@ -230,7 +221,6 @@
   }
   .stat-card .label { font-size: 0.82rem; color: var(--text-muted); }
 
-  /* EXPERIENCE */
   .exp-card {
     background: var(--card-bg);
     border: 1px solid var(--border-subtle);
@@ -250,7 +240,6 @@
   .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.5rem; }
   .exp-bullets strong { color: var(--text-primary); font-weight: 500; }
 
-  /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
   .skill-category {
     background: var(--card-bg); border: 1px solid var(--border-subtle);
@@ -269,7 +258,6 @@
     border: 1px solid rgba(79,156,249,0.2); font-weight: 400;
   }
 
-  /* PROJECTS */
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
   .project-card {
     background: var(--card-bg); border: 1px solid var(--border-subtle);
@@ -308,7 +296,6 @@
   .project-link { font-size: 0.82rem; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.15s; }
   .project-link:hover { color: var(--text-primary); }
 
-  /* CERTIFICATES */
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
   .cert-card {
     background: var(--card-bg); border: 1px solid var(--border-subtle);
@@ -330,9 +317,6 @@
   .cert-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; line-height: 1.3; }
   .cert-date { font-size: 0.78rem; color: var(--text-muted); }
 
-  /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .contact-info p { color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem; }
   .contact-links { display: flex; flex-direction: column; gap: 1rem; }
   .contact-link-item {
     display: flex; align-items: center; gap: 12px;
@@ -347,19 +331,6 @@
     font-size: 1rem; flex-shrink: 0; color: var(--accent);
   }
 
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 500; }
-  .form-group input, .form-group textarea {
-    background: var(--navy-3); border: 1px solid var(--border-subtle);
-    border-radius: 8px; padding: 0.75rem 1rem;
-    color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem;
-    outline: none; transition: border-color 0.2s; resize: none;
-  }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
-  .form-group textarea { height: 120px; }
-
-  /* FOOTER */
   footer {
     position: relative; z-index: 1;
     text-align: center; padding: 2rem;
@@ -368,17 +339,15 @@
   }
   footer a { color: var(--accent); text-decoration: none; }
 
-  /* ANIMATION */
   .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     #hero { flex-direction: column-reverse; text-align: center; padding-top: 7rem; gap: 2rem; }
     .hero-photo { width: 200px; height: 200px; }
     .btn-group { justify-content: center; }
     .hero-desc { margin: 0 auto 2rem; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     nav { padding: 1rem 4%; }
     .nav-links { gap: 1.2rem; }
     .section-inner { padding: 4rem 5%; }
@@ -387,7 +356,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">KP<span>.</span></a>
   <ul class="nav-links">
@@ -400,7 +368,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-text fade-in">
     <div class="hero-tag">👋 Open to Junior Data Analyst roles</div>
@@ -417,7 +384,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <div class="section-wrap alt" id="about">
   <div class="section-inner">
     <div class="about-grid">
@@ -453,7 +419,6 @@
   </div>
 </div>
 
-<!-- EXPERIENCE -->
 <div class="section-wrap" id="experience">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -480,7 +445,6 @@
   </div>
 </div>
 
-<!-- SKILLS -->
 <div class="section-wrap alt" id="skills">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -547,7 +511,6 @@
   </div>
 </div>
 
-<!-- PROJECTS -->
 <div class="section-wrap" id="projects">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -557,7 +520,6 @@
     </div>
     <div class="projects-grid">
 
-      <!-- PROJECT 1 — Tableau Churn Dashboard -->
       <div class="project-card fade-in">
         <div class="project-image">
           <img src="churn-dashboard.png" alt="Customer Churn Rate Dashboard in Tableau">
@@ -573,18 +535,13 @@
             <span class="project-tag">KPI Reporting</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Kiran757/Projects" class="project-link" target="_blank">↗ GitHub</a>
+            <a href="https://public.tableau.com/app/profile/kiran.paudel" class="project-link" target="_blank">↗ View on Tableau</a>
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 2 — SQL Baseball -->
       <div class="project-card fade-in">
         <div class="project-image">
-          <!--
-            TO ADD IMAGE: replace placeholder with
-            <img src="sql-baseball.png" alt="Baseball SQL Analysis">
-          -->
           <div class="placeholder-icon">⚾</div>
           <span>Add project image here</span>
           <span class="project-badge">SQL</span>
@@ -604,13 +561,8 @@
         </div>
       </div>
 
-      <!-- PROJECT 3 — UK Census ML -->
       <div class="project-card fade-in">
         <div class="project-image">
-          <!--
-            TO ADD IMAGE: replace placeholder with
-            <img src="census-analysis.png" alt="UK Census Analysis">
-          -->
           <div class="placeholder-icon">🇬🇧</div>
           <span>Add project image here</span>
           <span class="project-badge">Python · ML</span>
@@ -631,13 +583,8 @@
         </div>
       </div>
 
-      <!-- PROJECT 4 — Phoenix Dining Analytics -->
       <div class="project-card fade-in">
         <div class="project-image">
-          <!--
-            TO ADD IMAGE: replace placeholder with
-            <img src="phoenix-dashboard.png" alt="Phoenix Dining Dashboard">
-          -->
           <div class="placeholder-icon">📊</div>
           <span>Add project image here</span>
           <span class="project-badge">Excel · Power BI</span>
@@ -661,7 +608,6 @@
   </div>
 </div>
 
-<!-- CERTIFICATES -->
 <div class="section-wrap alt" id="certificates">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -673,10 +619,6 @@
 
       <div class="cert-card fade-in">
         <div class="cert-image">
-          <!--
-            TO ADD CERT IMAGE:
-            <img src="cert-udemy.jpg" alt="Udemy Certificate">
-          -->
           <div class="placeholder-icon">🎓</div>
           <span>Add certificate image</span>
         </div>
@@ -689,10 +631,6 @@
 
       <div class="cert-card fade-in">
         <div class="cert-image">
-          <!--
-            TO ADD CERT IMAGE:
-            <img src="cert-powerbi.jpg" alt="Power BI Certificate">
-          -->
           <div class="placeholder-icon">🎓</div>
           <span>Add certificate image</span>
         </div>
@@ -705,10 +643,6 @@
 
       <div class="cert-card fade-in">
         <div class="cert-image">
-          <!--
-            TO ADD CERT IMAGE:
-            <img src="cert-ibm.jpg" alt="IBM Certificate">
-          -->
           <div class="placeholder-icon">🎓</div>
           <span>Add certificate image</span>
         </div>
@@ -721,10 +655,6 @@
 
       <div class="cert-card fade-in">
         <div class="cert-image">
-          <!--
-            TO ADD CERT IMAGE:
-            <img src="cert-python.jpg" alt="Python Certificate">
-          -->
           <div class="placeholder-icon">🎓</div>
           <span>Add certificate image</span>
         </div>
@@ -737,10 +667,6 @@
 
       <div class="cert-card fade-in">
         <div class="cert-image">
-          <!--
-            TO ADD CERT IMAGE:
-            <img src="cert-mindrisers.jpg" alt="Mindrisers Certificate">
-          -->
           <div class="placeholder-icon">🎓</div>
           <span>Add certificate image</span>
         </div>
@@ -755,58 +681,37 @@
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="section-wrap" id="contact">
   <div class="section-inner">
-    <div class="contact-grid">
-      <div class="fade-in">
-        <div class="section-header">
-          <span class="section-label">Contact</span>
-          <h2 class="section-title">Let's work<br>together</h2>
-          <div class="section-divider"></div>
-        </div>
-        <p style="color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem;">I'm actively seeking Junior Data Analyst, BI Analyst, or Reporting Analyst roles. Open to relocate. Feel free to reach out!</p>
-        <div class="contact-links">
-          <a href="mailto:Kiranpaudel300@gmail.com" class="contact-link-item">
-            <div class="icon-wrap">✉️</div>
-            <span>Kiranpaudel300@gmail.com</span>
-          </a>
-          <a href="https://www.linkedin.com/in/kiran-paudel-8a26a8202/" target="_blank" class="contact-link-item">
-            <div class="icon-wrap">💼</div>
-            <span>linkedin.com/in/kiran-paudel</span>
-          </a>
-          <a href="https://github.com/Kiran757/Projects" target="_blank" class="contact-link-item">
-            <div class="icon-wrap">⌥</div>
-            <span>github.com/Kiran757/Projects</span>
-          </a>
-          <a href="tel:+447931942734" class="contact-link-item">
-            <div class="icon-wrap">📱</div>
-            <span>+44 7931 942734</span>
-          </a>
-        </div>
+    <div class="fade-in" style="max-width: 600px;">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's work<br>together</h2>
+        <div class="section-divider"></div>
       </div>
-      <div class="fade-in">
-        <form class="contact-form" onsubmit="handleContact(event)">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Jane Smith">
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="jane@company.com">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell me about the role or project..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width:fit-content">Send Message →</button>
-        </form>
+      <p style="color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem;">I'm actively seeking Junior Data Analyst, BI Analyst, or Reporting Analyst roles. Open to relocate. Feel free to reach out!</p>
+      <div class="contact-links">
+        <a href="mailto:Kiranpaudel300@gmail.com" class="contact-link-item">
+          <div class="icon-wrap">✉️</div>
+          <span>Kiranpaudel300@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/kiran-paudel-8a26a8202/" target="_blank" class="contact-link-item">
+          <div class="icon-wrap">💼</div>
+          <span>linkedin.com/in/kiran-paudel</span>
+        </a>
+        <a href="https://github.com/Kiran757/Projects" target="_blank" class="contact-link-item">
+          <div class="icon-wrap">⌥</div>
+          <span>github.com/Kiran757/Projects</span>
+        </a>
+        <a href="tel:+447931942734" class="contact-link-item">
+          <div class="icon-wrap">📱</div>
+          <span>+44 7931 942734</span>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>Designed &amp; built by <strong>Kiran Paudel</strong> · <a href="https://github.com/Kiran757/Projects" target="_blank">GitHub</a> · MSc Data Analytics, University of Portsmouth · Chichester, UK</p>
 </footer>
@@ -828,14 +733,6 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
-
-  function handleContact(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Sent!';
-    btn.style.background = '#22c55e';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
-  }
 </script>
 </body>
 </html>
