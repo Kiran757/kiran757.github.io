@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiran Paudel | Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0b1120;
+    --navy-2: #111827;
+    --navy-3: #1a2540;
+    --navy-4: #243052;
+    --accent: #4f9cf9;
+    --accent-dim: #2563c4;
+    --accent-glow: rgba(79,156,249,0.15);
+    --text-primary: #f0f4ff;
+    --text-secondary: #8fa3c8;
+    --text-muted: #4d6080;
+    --border: rgba(79,156,249,0.18);
+    --border-subtle: rgba(255,255,255,0.07);
+    --card-bg: rgba(26,37,64,0.6);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(79,156,249,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,156,249,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 6%;
+    background: rgba(11,17,32,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 8% 4rem;
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: 5rem;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,156,249,0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
+  }
+  .hero-name .highlight { color: var(--accent); }
+
+  .hero-role {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 1.4rem;
+    letter-spacing: -0.2px;
+  }
+
+  .hero-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 490px;
+    margin-bottom: 2.4rem;
+    font-weight: 300;
+  }
+
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    padding: 0.75rem 1.6rem; border-radius: 8px;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #3b8df5; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text-primary);
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    padding: 0.75rem 1.6rem; border-radius: 8px;
+    text-decoration: none; border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); background: var(--accent-glow); }
+
+  .hero-photo {
+    flex-shrink: 0;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: var(--navy-3);
+    overflow: hidden;
+    box-shadow: 0 0 0 8px rgba(79,156,249,0.06);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    color: var(--text-muted); font-size: 0.8rem; text-align: center;
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-placeholder-icon { font-size: 3rem; line-height: 1; }
+
+  /* SHARED SECTION */
+  .section-wrap {
+    position: relative; z-index: 1;
+  }
+  .section-wrap.alt { background: var(--navy-2); }
+
+  .section-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 6rem 8%;
+  }
+
+  .section-header { margin-bottom: 3rem; }
+  .section-label {
+    display: inline-block; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; letter-spacing: -0.8px; line-height: 1.1;
+  }
+  .section-divider {
+    width: 48px; height: 3px;
+    background: var(--accent); border-radius: 2px; margin-top: 1rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .about-text p { color: var(--text-secondary); font-weight: 300; margin-bottom: 1rem; }
+
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius);
+    padding: 1.4rem; backdrop-filter: blur(8px);
+  }
+  .stat-card .num {
+    font-family: var(--font-display); font-size: 1.9rem;
+    font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.3rem;
+  }
+  .stat-card .label { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* EXPERIENCE */
+  .exp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2rem; backdrop-filter: blur(8px);
+    border-left: 3px solid var(--accent);
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+  .exp-company { font-size: 0.9rem; color: var(--accent); margin-top: 0.2rem; }
+  .exp-date { font-size: 0.8rem; color: var(--text-muted); background: var(--navy-4); padding: 0.3rem 0.75rem; border-radius: 50px; white-space: nowrap; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.92rem; color: var(--text-secondary); font-weight: 300;
+    padding: 0.4rem 0; padding-left: 1.2rem; position: relative; line-height: 1.6;
+  }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.5rem; }
+  .exp-bullets strong { color: var(--text-primary); font-weight: 500; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+  .skill-category {
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg); padding: 1.6rem; backdrop-filter: blur(8px);
+    transition: border-color 0.2s;
+  }
+  .skill-category:hover { border-color: var(--border); }
+  .skill-cat-title {
+    font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(79,156,249,0.1); color: var(--text-secondary);
+    font-size: 0.8rem; padding: 0.3rem 0.75rem; border-radius: 50px;
+    border: 1px solid rgba(79,156,249,0.2); font-weight: 400;
+  }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s; backdrop-filter: blur(8px);
+  }
+  .project-card:hover { border-color: var(--border); transform: translateY(-4px); }
+
+  .project-image {
+    width: 100%; height: 200px; background: var(--navy-4);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 10px;
+    color: var(--text-muted); font-size: 0.8rem;
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative; overflow: hidden;
+  }
+  .project-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .project-image .placeholder-icon { font-size: 2.5rem; line-height: 1; }
+
+  .project-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 0.72rem; font-weight: 500;
+    background: rgba(79,156,249,0.85); color: #fff;
+    padding: 0.25rem 0.65rem; border-radius: 50px; letter-spacing: 0.04em;
+  }
+
+  .project-info { padding: 1.4rem; }
+  .project-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .project-desc { font-size: 0.88rem; color: var(--text-secondary); font-weight: 300; margin-bottom: 1rem; line-height: 1.6; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+  .project-tag {
+    font-size: 0.74rem; color: var(--accent); background: var(--accent-glow);
+    border: 1px solid rgba(79,156,249,0.25); padding: 0.2rem 0.6rem; border-radius: 4px;
+  }
+  .project-links { display: flex; gap: 0.8rem; }
+  .project-link { font-size: 0.82rem; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.15s; }
+  .project-link:hover { color: var(--text-primary); }
+
+  /* CERTIFICATES */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
+  .cert-card {
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s; backdrop-filter: blur(8px);
+  }
+  .cert-card:hover { border-color: var(--border); transform: translateY(-3px); }
+  .cert-image {
+    width: 100%; height: 140px; background: var(--navy-4);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    color: var(--text-muted); font-size: 0.8rem;
+    border-bottom: 1px solid var(--border-subtle); overflow: hidden;
+  }
+  .cert-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cert-image .placeholder-icon { font-size: 2.2rem; line-height: 1; }
+  .cert-info { padding: 1rem 1.2rem; }
+  .cert-issuer { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+  .cert-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; line-height: 1.3; }
+  .cert-date { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info p { color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link-item {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+    transition: color 0.2s; padding: 0.75rem 1rem;
+    border-radius: 8px; border: 1px solid var(--border-subtle); background: var(--card-bg);
+  }
+  .contact-link-item:hover { color: var(--accent); border-color: var(--border); }
+  .contact-link-item .icon-wrap {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--accent-glow); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0; color: var(--accent);
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 500; }
+  .form-group input, .form-group textarea {
+    background: var(--navy-3); border: 1px solid var(--border-subtle);
+    border-radius: 8px; padding: 0.75rem 1rem;
+    color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s; resize: none;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { height: 120px; }
+
+  /* FOOTER */
+  footer {
+    position: relative; z-index: 1;
+    text-align: center; padding: 2rem;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted); font-size: 0.82rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ANIMATION */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    #hero { flex-direction: column-reverse; text-align: center; padding-top: 7rem; gap: 2rem; }
+    .hero-photo { width: 200px; height: 200px; }
+    .btn-group { justify-content: center; }
+    .hero-desc { margin: 0 auto 2rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    nav { padding: 1rem 4%; }
+    .nav-links { gap: 1.2rem; }
+    .section-inner { padding: 4rem 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">KP<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text fade-in">
+    <div class="hero-tag">👋 Open to Junior Data Analyst roles</div>
+    <h1 class="hero-name">Kiran<br><span class="highlight">Paudel</span></h1>
+    <p class="hero-role">MSc Data Analytics (Merit) · University of Portsmouth</p>
+    <p class="hero-desc">Turning raw data into actionable insights through SQL, Python, Tableau, Power BI, and interactive dashboards. Based in Chichester, UK — open to relocate.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn-primary">View My Work →</a>
+      <a href="mailto:Kiranpaudel300@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-photo fade-in">
+    <img src="photo.jpg" alt="Kiran Paudel">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="section-wrap alt" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="section-header">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Data analyst with<br>real-world impact</h2>
+          <div class="section-divider"></div>
+        </div>
+        <p>I'm an MSc Data Analytics graduate (Merit) from the University of Portsmouth with hands-on experience turning complex operational and sales data into clear, actionable insights.</p>
+        <p>My background spans SQL, Python (Pandas, NumPy), Tableau, Power BI, and Excel — covering the full data lifecycle from cleaning and EDA through to KPI dashboards and stakeholder reporting.</p>
+        <p>I've also applied these skills in a real business context as Operations Manager at Phoenix Dining, where I built automated reporting systems and cut reporting time by 12 hours per week.</p>
+      </div>
+      <div class="about-stats fade-in">
+        <div class="stat-card">
+          <div class="num">MSc</div>
+          <div class="label">Data Analytics (Merit)<br>Univ. of Portsmouth</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">−12h</div>
+          <div class="label">Weekly reporting time saved at Phoenix Dining</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">28%</div>
+          <div class="label">Stock shortages reduced through data-driven ordering</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">5+</div>
+          <div class="label">Certifications in data analytics & BI tools</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-wrap" id="experience">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">Experience</span>
+      <h2 class="section-title">Professional Background</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-card fade-in">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Operations Manager — Reporting &amp; Analytics</div>
+          <div class="exp-company">Phoenix Dining · Chichester, UK</div>
+        </div>
+        <div class="exp-date">Oct 2024 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Built and maintained automated Excel reporting systems using Power Query and Pivot Tables, reducing weekly reporting time by <strong>12 hours</strong> while tracking daily sales, inventory, and operational KPIs.</li>
+        <li>Analysed sales patterns and peak-hour trends, optimising inventory ordering and reducing stock shortages by <strong>28%</strong>.</li>
+        <li>Developed and delivered weekly performance dashboards for management, improving visibility of key metrics and supporting decisions that increased average order value by <strong>11%</strong>.</li>
+        <li>Implemented data validation and cleaning processes, improving the accuracy of operational records from <strong>87% to 94%</strong>.</li>
+        <li>Monitored customer purchasing behaviour and historical sales data, resulting in a <strong>22% reduction</strong> in operational waste and overstock.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section-wrap alt" id="skills">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">Skills</span>
+      <h2 class="section-title">Tools &amp; Technologies</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category fade-in">
+        <div class="skill-cat-title">Programming &amp; Querying</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">CTEs</span>
+          <span class="skill-tag">Window Functions</span>
+          <span class="skill-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <div class="skill-cat-title">Visualisation &amp; BI</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Pivot Tables</span>
+          <span class="skill-tag">Power Query</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <div class="skill-cat-title">Data Analysis</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Cleaning</span>
+          <span class="skill-tag">EDA</span>
+          <span class="skill-tag">KPI Reporting</span>
+          <span class="skill-tag">Regression</span>
+          <span class="skill-tag">A/B Testing</span>
+          <span class="skill-tag">Statistical Analysis</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <div class="skill-cat-title">Machine Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Predictive Modelling</span>
+          <span class="skill-tag">Classification</span>
+          <span class="skill-tag">Clustering</span>
+          <span class="skill-tag">KNN</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">GMM</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <div class="skill-cat-title">Tools &amp; Workflow</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jupyter Notebook</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">MySQL Workbench</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-wrap" id="projects">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">Projects</span>
+      <h2 class="section-title">Featured Work</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 — Tableau Churn Dashboard -->
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <img src="churn-dashboard.png" alt="Customer Churn Rate Dashboard in Tableau">
+          <span class="project-badge">Tableau</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Customer Churn Analysis Dashboard</h3>
+          <p class="project-desc">Interactive Tableau dashboard analysing churn drivers — contract type, payment method, tenure, and monthly charges — with actionable retention recommendations.</p>
+          <div class="project-tags">
+            <span class="project-tag">Tableau</span>
+            <span class="project-tag">Dashboard Design</span>
+            <span class="project-tag">Churn Analysis</span>
+            <span class="project-tag">KPI Reporting</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Kiran757/Projects" class="project-link" target="_blank">↗ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 — SQL Baseball -->
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <!--
+            TO ADD IMAGE: replace placeholder with
+            <img src="sql-baseball.png" alt="Baseball SQL Analysis">
+          -->
+          <div class="placeholder-icon">⚾</div>
+          <span>Add project image here</span>
+          <span class="project-badge">SQL</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Baseball Player &amp; Salary Analysis</h3>
+          <p class="project-desc">Advanced SQL analysis on relational datasets using Joins, CTEs, Window Functions (ROW_NUMBER, NTILE, LAG), rolling calculations, and aggregations in MySQL to uncover salary trends and player performance KPIs.</p>
+          <div class="project-tags">
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Window Functions</span>
+            <span class="project-tag">CTEs</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Kiran757/Projects" class="project-link" target="_blank">↗ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 — UK Census ML -->
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <!--
+            TO ADD IMAGE: replace placeholder with
+            <img src="census-analysis.png" alt="UK Census Analysis">
+          -->
+          <div class="placeholder-icon">🇬🇧</div>
+          <span>Add project image here</span>
+          <span class="project-badge">Python · ML</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">UK Census 2011 — Data Analysis &amp; Clustering</h3>
+          <p class="project-desc">Full-cycle analysis of large-scale demographic datasets using Python. Applied KNN, XGBoost, Bagging, and Gaussian Mixture Models for classification, regression, and socio-economic segmentation.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">XGBoost</span>
+            <span class="skill-tag">Clustering</span>
+            <span class="project-tag">Matplotlib</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Kiran757/Projects" class="project-link" target="_blank">↗ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 — Phoenix Dining Analytics -->
+      <div class="project-card fade-in">
+        <div class="project-image">
+          <!--
+            TO ADD IMAGE: replace placeholder with
+            <img src="phoenix-dashboard.png" alt="Phoenix Dining Dashboard">
+          -->
+          <div class="placeholder-icon">📊</div>
+          <span>Add project image here</span>
+          <span class="project-badge">Excel · Power BI</span>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Restaurant Operations Dashboard</h3>
+          <p class="project-desc">Automated Excel reporting system built with Power Query and Pivot Tables for Phoenix Dining, tracking daily sales, inventory KPIs, and waste reduction — saving 12 hours of reporting per week.</p>
+          <div class="project-tags">
+            <span class="project-tag">Excel</span>
+            <span class="project-tag">Power Query</span>
+            <span class="project-tag">KPI Reporting</span>
+            <span class="project-tag">Operations</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Kiran757/Projects" class="project-link" target="_blank">↗ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATES -->
+<div class="section-wrap alt" id="certificates">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">Certifications</span>
+      <h2 class="section-title">Credentials &amp; Learning</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card fade-in">
+        <div class="cert-image">
+          <!--
+            TO ADD CERT IMAGE:
+            <img src="cert-udemy.jpg" alt="Udemy Certificate">
+          -->
+          <div class="placeholder-icon">🎓</div>
+          <span>Add certificate image</span>
+        </div>
+        <div class="cert-info">
+          <div class="cert-issuer">Udemy</div>
+          <div class="cert-title">Data Analyst Skillpath: Excel, SQL &amp; Python</div>
+          <div class="cert-date">2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-image">
+          <!--
+            TO ADD CERT IMAGE:
+            <img src="cert-powerbi.jpg" alt="Power BI Certificate">
+          -->
+          <div class="placeholder-icon">🎓</div>
+          <span>Add certificate image</span>
+        </div>
+        <div class="cert-info">
+          <div class="cert-issuer">Coursera · Microsoft</div>
+          <div class="cert-title">Power BI Data Analyst Professional Certificate</div>
+          <div class="cert-date">2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-image">
+          <!--
+            TO ADD CERT IMAGE:
+            <img src="cert-ibm.jpg" alt="IBM Certificate">
+          -->
+          <div class="placeholder-icon">🎓</div>
+          <span>Add certificate image</span>
+        </div>
+        <div class="cert-info">
+          <div class="cert-issuer">Coursera · IBM</div>
+          <div class="cert-title">IBM Data Analyst Professional Certificate</div>
+          <div class="cert-date">2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-image">
+          <!--
+            TO ADD CERT IMAGE:
+            <img src="cert-python.jpg" alt="Python Certificate">
+          -->
+          <div class="placeholder-icon">🎓</div>
+          <span>Add certificate image</span>
+        </div>
+        <div class="cert-info">
+          <div class="cert-issuer">Coursera · Google</div>
+          <div class="cert-title">Get Started with Python</div>
+          <div class="cert-date">2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-image">
+          <!--
+            TO ADD CERT IMAGE:
+            <img src="cert-mindrisers.jpg" alt="Mindrisers Certificate">
+          -->
+          <div class="placeholder-icon">🎓</div>
+          <span>Add certificate image</span>
+        </div>
+        <div class="cert-info">
+          <div class="cert-issuer">Mindrisers Institute</div>
+          <div class="cert-title">Data Science</div>
+          <div class="cert-date">2023</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section-wrap" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-header">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">Let's work<br>together</h2>
+          <div class="section-divider"></div>
+        </div>
+        <p style="color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem;">I'm actively seeking Junior Data Analyst, BI Analyst, or Reporting Analyst roles. Open to relocate. Feel free to reach out!</p>
+        <div class="contact-links">
+          <a href="mailto:Kiranpaudel300@gmail.com" class="contact-link-item">
+            <div class="icon-wrap">✉️</div>
+            <span>Kiranpaudel300@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/kiran-paudel-8a26a8202/" target="_blank" class="contact-link-item">
+            <div class="icon-wrap">💼</div>
+            <span>linkedin.com/in/kiran-paudel</span>
+          </a>
+          <a href="https://github.com/Kiran757/Projects" target="_blank" class="contact-link-item">
+            <div class="icon-wrap">⌥</div>
+            <span>github.com/Kiran757/Projects</span>
+          </a>
+          <a href="tel:+447931942734" class="contact-link-item">
+            <div class="icon-wrap">📱</div>
+            <span>+44 7931 942734</span>
+          </a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Jane Smith">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@company.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about the role or project..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:fit-content">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed &amp; built by <strong>Kiran Paudel</strong> · <a href="https://github.com/Kiran757/Projects" target="_blank">GitHub</a> · MSc Data Analytics, University of Portsmouth · Chichester, UK</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  function handleContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Sent!';
+    btn.style.background = '#22c55e';
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+  }
+</script>
+</body>
+</html>
